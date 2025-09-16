@@ -1,52 +1,134 @@
-![badge-labs](https://user-images.githubusercontent.com/327285/230928932-7c75f8ed-e57b-41db-9fb7-a292a13a1e58.svg)
+# Financial AI Agent Quickstart
 
-<img align="right" width="40%" src="https://www.finos.org/hubfs/FINOS/finos-logo/FINOS_Icon_Wordmark_Name_RGB_horizontal.png">
+## Table of Contents
 
-# FINOS Software Project Blueprint
+- [Financial AI Agent Quickstart](#financial-ai-agent-quickstart)
+  - [Table of Contents](#table-of-contents)
+  - [About The Project](#about-the-project)
+  - [Prerequisites](#prerequisites)
+  - [Environment Setup](#environment-setup)
+  - [Installation](#installation)
+  - [Directory Structure](#directory-structure)
+  - [LLM Setup](#llm-setup)
+  - [Input Data](#input-data)
+  - [Usage Example](#usage-example)
+  - [Development Setup](#development-setup)
+  - [Roadmap](#roadmap)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
 
-Project blueprint is a GitHub repository template for all [Fintech Open Source Foundation (FINOS)](https://www.finos.org/) hosted GitHub repositories, contributed and maintained by FINOS as part of the [Open Developer Platform (ODP)](https://odp.finos.org) initiative.
+## About The Project
+
+This project provides a robust template for developing multi-agent AI workflows, leveraging LlamaIndex and modern LLMs. It demonstrates:
+
+- Multi-agent orchestration with `AgentWorkflow`
+- Integration with local and cloud LLMs (Google Gemini, LM Studio, etc.)
+- RAG pipeline for document-based retrieval
+- Evaluation metrics for agent and RAG quality
+- Modular directory structure for extensibility
 
 
-## Using DCO to sign your commits
+## Prerequisites
 
-All commits must be signed with a DCO signature to avoid being flagged by the DCO Bot. This means that your commit log message must contain a line that looks like the following one, with your actual name and email address:
+Before starting, ensure you have:
+
+- **Google Gemini API Key**: [Get from Google AI Studio](https://aistudio.google.com/app/apikey) and set as `GOOGLE_API_KEY` in your environment
+- **Tavily Search API Key**: [Get from Tavily](https://tavily.com/) and set as `TAVILY_SEARCH_API_KEY`
+- **Python 3.10+**
+- **uv**: High-performance Python package manager ([uv installation](https://github.com/astral-sh/uv))
+- (Optional) **LM Studio** for local LLM serving ([Download LM Studio](https://lmstudio.ai/))
+
+## Environment Setup
+
+Create a `.env` file in your project root:
+
+```.env
+GOOGLE_API_KEY=your_google_api_key_here
+TAVILY_SEARCH_API_KEY=your_tavily_api_key_here
+```
+
+## Installation
+
+Clone the repo and install dependencies:
+
+```sh
+git clone https://github.com/your_username/agent-quickstart.git
+cd agent-quickstart
+uv sync
+```
+
+## Directory Structure
+
+```text
+Agent-QuickStart/
+├── .env
+├── llama_index_agent_example.ipynb
+├── main.py
+├── data/
+│   ├── input/          # Place PDF files here
+│   └── output/         # Converted markdown files will be stored here
+└── database/
+    └── vector_store/   # ChromaDB database will be created here
+```
+
+## LLM Setup
+
+- **Google Gemini**: Set up API key as above
+- **Local LLM (Optional)**:
+  - Install LM Studio
+  - Download a compatible model (e.g., qwen3-8b)
+  - Start LM Studio server on `http://127.0.0.1:1234/v1`
+
+## Input Data
+
+- Place PDF documents to be processed in `data/input/`
+- Converted markdown files will be saved in `data/output/`
+- Example: `internet-history-09.pdf`
+
+## Usage Example
+
+See `llama_index_agent_example.ipynb` for a full workflow:
+
+- Load environment variables
+- Convert PDFs to markdown
+- Generate vector database
+- Query and evaluate RAG pipeline
+- Define and run multi-agent workflow
+
+## Development Setup
+
+Install development dependencies and run tests:
+
+```sh
+uv sync
+# (Add test instructions if available)
+```
+
+## Roadmap
+
+- [x] Multi-agent workflow example
+- [x] RAG pipeline integration
+- [x] LLM evaluation metrics
+- [ ] Add more agent templates
+- [ ] Expand documentation and examples
+
+## Contributing
+
+All commits must be signed with a DCO signature. See [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
 ```
-Signed-off-by: John Doe <john.doe@example.com>
+Signed-off-by: Your Name <your.email@example.com>
 ```
-
-Adding the `-s` flag to your `git commit` will add that line automatically. You can also add it manually as part of your commit log message or add it afterwards with `git commit --amend -s`.
-
-### Helpful DCO Resources
-- [Git Tools - Signing Your Work](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work)
-- [Signing commits
-](https://docs.github.com/en/github/authenticating-to-github/signing-commits)
-
-
-## How to use this blueprint
-
-1. Clone this repository locally (`git clone https://github.com/finos-labs/project-blueprint.git`)
-2. Copy the `LICENSE`, `LICENSE.spdx`, and `NOTICE` files, as well as the entire `.github` directory, to your own repository (do _not_ copy this `README.md` file).
-3. Copy the `README.template.md` file to your repository, and rename it to `README.md`.
-4. Search and replace the following tokens in the newly copied files:
-
-  | Token                        | Replace with                                                      |
-  | ---------------------------- | ----------------------------------------------------------------- |
-  | `{project name}`             | The name of the GitHub repository the project resides in.         |
-  | `{yyyy}`                     | The year you started working on the code.                         |
-  | `{current_year}`             | The current year.                                                 |
-  | `{name of copyright owner}`  | The copyright owner of the code (typically you or your employer). |
-  | `{email of copyright owner}` | The email address of the copyright owner of the code (if known).  |
-
-5. Open the `NOTICE` file in a text editor and either remove the `{Other notices, as necessary}` token, or [add attributions if required by your code's dependencies](https://finosfoundation.atlassian.net/wiki/spaces/FINOS/pages/75530255/License+Categories).
-6. Open the `README.md` file in a text editor and complete the content as appropriate for your project.
-7. Add the [Apache license header to all of your source files](https://www.apache.org/licenses/LICENSE-2.0.html#apply).
-8. Commit all of your changes.
+Add the `-s` flag to your `git commit` to sign automatically.
 
 ## License
 
-Copyright 2020 Fintech Open Source Foundation
-
 Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
-
 SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
+
+## Acknowledgments
+
+- [LlamaIndex Documentation](https://docs.llamaindex.ai/en/stable/examples/llm/openai/)
+- [LM Studio](https://lmstudio.ai/)
+- [DeepEval](https://github.com/DeepEval/DeepEval)
