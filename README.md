@@ -29,13 +29,12 @@ This project provides a template and best practice for developing multi-agent AI
 - RAG pipeline for document-based retrieval
 - Evaluation metrics for agent orchestration, tool execution and RAG quality
 
-
 ## Prerequisites
 
 Before starting, ensure you have:
 
 - **Python 3.11.9**
-- - **uv**: High-performance Python package manager ([uv installation](https://github.com/astral-sh/uv))
+- **uv**: High-performance Python package manager ([uv installation](https://github.com/astral-sh/uv))
 - **Google Gemini API Key**: Provided by the FINOS Team and set as `GOOGLE_API_KEY` in your environment
 - **Tavily Search API Key**: [Get from Tavily](https://tavily.com/) and set as `TAVILY_SEARCH_API_KEY`
 - **Scaleway GenAI API Key**: Provided by the FINOS team and set as `SCW_SECRET_KEY`
