@@ -12,6 +12,8 @@
   - [Setup](#setup)
   - [Input Data](#input-data)
   - [Usage Example](#usage-example)
+    - [SEC 10-K \& 10-Q Filings Analysis with LlamaIndex](#sec-10-k--10-q-filings-analysis-with-llamaindex)
+    - [Stock Data and Sentiment Analysis with Agno](#stock-data-and-sentiment-analysis-with-agno)
   - [Roadmap](#roadmap)
     - [✅ Completed](#-completed)
     - [🚧 In Development](#-in-development)
@@ -82,13 +84,26 @@ Agent-QuickStart/
 
 ## Usage Example
 
-See `llama_index_agent_example.ipynb` for a full workflow:
+We have two agent examples providing a full multi-agent execution workflow.
+
+### SEC 10-K & 10-Q Filings Analysis with LlamaIndex
+
+ The `llama_index_agent_example.ipynb` notebook demonstrates how to:
 
 - Load environment variables
 - Convert PDFs to markdown
 - Generate vector database
 - Query and evaluate RAG pipeline
 - Define and run multi-agent workflow
+- Leverage DeepEval across the flow execution, with a LLM-as-Judge approach
+
+### Stock Data and Sentiment Analysis with Agno
+
+The `agno_agent_example.ipynb` notebod demonstrates how to:
+
+- Leverage Google Search for web search on recent information to produce sentiment analysis
+- Leverage Yahoo Finance for financial data retrieval including historical stock prices and financial ratios
+- Define and run multi-agent workflow to produce an analyst report
 
 ## Roadmap
 
