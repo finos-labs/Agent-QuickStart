@@ -11,7 +11,8 @@
   - [Directory Structure](#directory-structure)
   - [Setup](#setup)
   - [Input Data](#input-data)
-  - [Usage Example](#usage-example)
+  - [Usage Examples](#usage-examples)
+    - [Reflexive Metacognitive Financial Advisor with LangGraph](#reflexive-metacognitive-financial-advisor-with-langgraph)
     - [SEC 10-K \& 10-Q Filings Analysis with LlamaIndex](#sec-10-k--10-q-filings-analysis-with-llamaindex)
     - [Stock Data and Sentiment Analysis with Agno](#stock-data-and-sentiment-analysis-with-agno)
   - [Roadmap](#roadmap)
@@ -26,10 +27,12 @@
 
 This project provides a template and best practice for developing multi-agent AI workflows, leveraging various agentic frameworks, modern LLMs and AI evaluation strategies. It demonstrates:
 
-- Multi-agent orchestration strategies 
-- Integration with local and cloud LLMs, including SOTA (OpenAI / Google Gemini) and Open Weight models (Llama, Qwen, DeepSeek)
-- RAG pipeline for document-based retrieval
-- Evaluation metrics for agent orchestration, tool execution and RAG quality
+- **Multi-agent orchestration strategies** across different frameworks (LangGraph, LlamaIndex, Agno)
+- **Metacognitive AI agents** with self-awareness and responsible decision-making capabilities
+- **AI Safety & Compliance** in financial domains with built-in ethical boundaries and professional referral systems
+- **Integration with local and cloud LLMs**, including SOTA (OpenAI / Google Gemini) and Open Weight models (Llama, Qwen, DeepSeek)
+- **RAG pipeline** for document-based retrieval and analysis
+- **Evaluation metrics** for agent orchestration, tool execution and RAG quality
 
 ## Prerequisites
 
@@ -44,7 +47,7 @@ Before starting, ensure you have:
 
 ## Environment Setup
 
-Rename tje `.env.new` file in your project root to `.env` and update with the API Keys provided by the FINOS team.
+Rename the `.env.new` file in your project root to `.env` and update with the API Keys provided by the FINOS team.
 
 ## Installation
 
@@ -61,7 +64,9 @@ uv sync
 ```text
 Agent-QuickStart/
 ├── .env
-├── llama_index_agent_example.ipynb
+├── langgraph_agent_example.ipynb      # Metacognitive financial advisor with LangGraph
+├── llama_index_agent_example.ipynb    # SEC filings analysis with LlamaIndex
+├── agno_agent_example.ipynb           # Stock data and sentiment analysis with Agno
 ├── main.py
 ├── data/
 │   ├── input/          # Place PDF files here
@@ -82,9 +87,26 @@ Agent-QuickStart/
 - Place PDF documents (10K or 10Q reports) to be processed in `data/input/`
 - Converted markdown files will be saved in `data/output/`
 
-## Usage Example
+## Usage Examples
 
-We have two agent examples providing a full multi-agent execution workflow.
+We have three agent examples, each demonstrating different approaches to multi-agent AI workflows and financial analysis:
+
+### Reflexive Metacognitive Financial Advisor with LangGraph
+
+The `langgraph_agent_example.ipynb` notebook demonstrates an advanced **Reflexive Metacognitive Financial Agent** that maintains explicit awareness of its financial knowledge boundaries, confidence levels, and ethical responsibilities. This agent showcases:
+
+- **Self-Aware Decision Making**: The agent analyzes each query against its capabilities before responding
+- **Multi-Strategy Routing**: Chooses between direct reasoning, specialized tool usage, or escalation to professionals
+- **Built-in AI Safety**: Explicit ethical boundaries and regulatory compliance in financial advice
+- **Professional Referral System**: Rather than refusing help, provides constructive guidance on finding qualified professionals
+- **Scaleway AI Integration**: Demonstrates integration with Scaleway's GenAI API infrastructure
+
+The agent asks critical questions like:
+- "Do I have sufficient expertise to provide guidance on this financial topic?"
+- "Is this query within my designated area of financial knowledge?"
+- "Is this a high-stakes financial decision where incorrect advice could cause significant harm?"
+
+This example is particularly valuable for understanding **AI safety and responsibility** in financial domains, where poor advice can have serious real-world consequences.
 
 ### SEC 10-K & 10-Q Filings Analysis with LlamaIndex
 
@@ -99,7 +121,7 @@ We have two agent examples providing a full multi-agent execution workflow.
 
 ### Stock Data and Sentiment Analysis with Agno
 
-The `agno_agent_example.ipynb` notebod demonstrates how to:
+The `agno_agent_example.ipynb` notebook demonstrates how to:
 
 - Leverage Google Search for web search on recent information to produce sentiment analysis
 - Leverage Yahoo Finance for financial data retrieval including historical stock prices and financial ratios
@@ -110,9 +132,14 @@ The `agno_agent_example.ipynb` notebod demonstrates how to:
 ### ✅ Completed
 
 - [x] Multi-agent financial analysis workflow (Research → Write → Review)
+- [x] Reflexive Metacognitive Financial Agent with LangGraph
+- [x] AI Safety & Compliance** framework for financial domains
+- [x] Multi-strategy routing** (Direct reasoning, Tool usage, Professional escalation)
+- [x] Self-aware decision making** with confidence assessment
 - [x] RAG pipeline with financial document processing
 - [x] Comprehensive AI evaluation metrics (DeepEval integration)
 - [x] Real-time quality assessment during agent execution
+- [x] Professional referral and escalation system
 
 ### 🚧 In Development  
 
@@ -157,8 +184,10 @@ SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
 
 ## Acknowledgments
 
+- [LangGraph](https://langchain-ai.github.io/langgraph/) - State-based agent framework for building metacognitive AI systems
 - [LlamaIndex](https://docs.llamaindex.ai/) - Multi-agent workflow framework and RAG implementation
 - [DeepEval](https://github.com/DeepEval/DeepEval) - AI evaluation metrics and testing framework
 - [LM Studio](https://lmstudio.ai/) - Local LLM serving platform
 - [Tavily](https://tavily.com/) - Web search API for real-time information retrieval
 - [ChromaDB](https://www.trychroma.com/) - Vector database for document embedding and retrieval
+- [Scaleway](https://www.scaleway.com/en/ai/) - AI infrastructure and GenAI API services
